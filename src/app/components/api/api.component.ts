@@ -15,14 +15,14 @@ export class ApiComponent implements OnInit {
 
   ELEMENT_DATA: PeriodicElement[] = [
     {
-      name: 'closeModal', 
-      description: 'This will close the open modal. Additionally, text changes will not be saved.', 
+      name: 'functionOne', 
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
       attributes: 'Type:',
       attributeType: 'function'
     },
     {
-      name: 'saveModal', 
-      description: 'Opens the modal', 
+      name: 'functionTwo', 
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 
       attributes: 'Type:',
       attributeType: 'function'
     },
