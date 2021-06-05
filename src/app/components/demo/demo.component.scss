@@ -1,0 +1,37 @@
+.container-wrapper {
+  padding: 16px 0;
+
+  span {
+    padding-right: 0.25rem;
+    color: #000;
+    font-weight: lighter;
+  }
+
+  .mat-expansion-panel-header,
+  .mat-expansion-panel-header.mat-expanded {
+    height: 3rem;
+  }
+
+  .mat-expansion-panel-header:first-of-type {
+    background: #d8dde6;
+  }
+
+  .mat-icon {
+    padding: 0;
+    transform: rotate(90deg);
+    color: #8291a7;
+  }
+
+  .mat-form-field + .mat-form-field {
+    margin-left: 0.5rem;
+  }
+
+  .mat-expansion-panel-header-description {
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  .mat-expansion-panel {
+    box-shadow: none;
+  }
+}
