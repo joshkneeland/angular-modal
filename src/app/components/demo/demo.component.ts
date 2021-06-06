@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DisplayValues } from '../../models/display-values';
+import { UpdateModalService } from 'src/app/services/update-modal.service';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss']
 })
-export class DemoComponent {
+export class DemoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _updateModalService: UpdateModalService) { }
+
+  ngOnInit() {
+    this.displayValues = this._updateModalService.getDisplayValues();
+  }
 
   openModal(modalType: string) {
     this.displayModal = true;
@@ -47,12 +52,12 @@ export class DemoComponent {
   titleIconOption: string = 'Show Icon';
 
   displayValues: DisplayValues = {
-    titleText: 'Title Example',
-    bodyContent: 'Body content example',
-    primaryButtonLabel: 'Accept',
-    secondaryButtonLabel: 'Cancel',
-    ariaValue: 'Aria Value Example',
-  }
+    titleText: '',
+    bodyContent: '',
+    primaryButtonLabel: '',
+    secondaryButtonLabel: '',
+    ariaValue: '',
+  };
 
   hasTitleIcon(): boolean {
     return this.titleIconOption === 'Show Icon' ? true : false;

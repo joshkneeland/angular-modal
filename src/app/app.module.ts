@@ -20,6 +20,9 @@ import { SpecComponent } from './components/spec/spec.component';
 import { AccessibilityComponent } from './components/accessibility/accessibility.component';
 import { ModalComponent } from './components/modal/modal.component';
 
+// SERVICES
+import { UpdateModalService } from './services/update-modal.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,7 @@ import { ModalComponent } from './components/modal/modal.component';
     MatInputModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [UpdateModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
