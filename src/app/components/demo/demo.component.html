@@ -22,46 +22,49 @@
                 <div class="dialog-input-wrapper">
                     <div class="dialog-option-wrapper">
                         <label>Title Text</label>
-                        <input type="text" [(ngModel)]="titleText">
+                        <input type="text" [(ngModel)]="displayValues.titleText">
                     </div>
                     <div class="dialog-option-wrapper">
                         <label>Body Content</label>
-                        <input type="text" [(ngModel)]="bodyContent">
+                        <input type="text" [(ngModel)]="displayValues.bodyContent">
                     </div>
                     <div class="dialog-option-wrapper">
                         <label>Primary Button Label</label>
-                        <input type="text" [(ngModel)]="primaryButtonLabel">
+                        <input type="text" [(ngModel)]="displayValues.primaryButtonLabel">
                     </div>
                     <div class="dialog-option-wrapper">
                         <label>Secondary Button Label</label>
-                        <input type="text" [(ngModel)]="secondaryButtonLabel">
+                        <input type="text" [(ngModel)]="displayValues.secondaryButtonLabel">
                     </div>
                     <div class="dialog-option-wrapper">
                         <label>Color Theme</label>
                         <mat-radio-group 
                             aria-labelledby="example-radio-group-label" 
                             class="example-radio-group" 
-                            [(ngModel)]="selectColorTheme">
+                            [(ngModel)]="colorTheme">
                             <mat-radio-button 
                                 class="example-radio-button" 
-                                *ngFor="let theme of colorThemes" 
-                                [value]="theme">
-                                {{theme}}
+                                *ngFor="let colorTheme of colorThemes" 
+                                [value]="colorTheme">
+                                {{colorTheme}}
                             </mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <div class="dialog-option-wrapper">
-                        <label>Display Title</label>
+                        <label>Display Title Icon</label>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-                            [(ngModel)]="titleOption">
-                            <mat-radio-button class="example-radio-button" *ngFor="let titleOption of titleOptions" [value]="titleOption">
-                                {{titleOption}}
+                            [(ngModel)]="titleIconOption">
+                            <mat-radio-button 
+                                class="example-radio-button" 
+                                *ngFor="let iconOption of titleIconOptions" 
+                                [value]="iconOption">
+                                {{iconOption}}
                             </mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <div class="dialog-option-wrapper">
                         <label>Aria Description</label>
-                        <input type="text" [(ngModel)]="ariaValue">
+                        <input type="text" [(ngModel)]="displayValues.ariaValue">
                     </div>
                     <div class="dialog-button-wrapper">
                         <button mat-flat-button color="primary" (click)="openModal('dialogModal')">Open Dialog Modal</button>
@@ -71,15 +74,15 @@
             <div class="flex-item"> 
                 <div class="json-output-wrapper">
                     <p>&#123;</p>
-                    <p class="indent-by-one">"ariaDescription": "{{ ariaValue }}"</p>
+                    <p class="indent-by-one">"ariaDescription": "{{ displayValues.ariaValue }}"</p>
                     <p class="indent-by-one">"data": &#123;</p>
-                    <p class="indent-by-two">"title": "{{ titleText }}"</p>
-                    <p class="indent-by-two">"body": "{{ bodyContent }}"</p>
-                    <p class="indent-by-two">"primaryButton": "{{ primaryButtonLabel }}"</p>
-                    <p class="indent-by-two">"secondaryButton": "{{ secondaryButtonLabel }}"</p>
+                    <p class="indent-by-two">"title": "{{ displayValues.titleText }}"</p>
+                    <p class="indent-by-two">"body": "{{ displayValues.bodyContent }}"</p>
+                    <p class="indent-by-two">"primaryButton": "{{ displayValues.primaryButtonLabel }}"</p>
+                    <p class="indent-by-two">"secondaryButton": "{{ displayValues.secondaryButtonLabel }}"</p>
                     <p class="indent-by-one">&#125;,</p>
-                    <p class="indent-by-one">"themeType": "{{ selectColorTheme }}"</p>
-                    <p class="indent-by-one">"titleIcon": {{ selectTitleOption() }}</p>
+                    <p class="indent-by-one">"hasLightTheme": {{ hasLightTheme() }}</p>
+                    <p class="indent-by-one">"hasTitleIcon": {{ hasTitleIcon() }}</p>
                     <p>&#125;</p>
                 </div>
             </div>
@@ -152,6 +155,11 @@
         </div>
     </div>
     <div class="modal-wrapper" *ngIf="displayModal">
-        <app-modal [modalInfo]="modalProperties"></app-modal>
+        <app-modal 
+            [modalInfo]="displayValues"
+            [hasTitleIconPass]="hasTitleIcon()"
+            [hasLightThemePass]="hasLightTheme()"
+            (changed)="updateModal($event)">
+        </app-modal>
     </div>
 </div>

@@ -1,34 +1,21 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
+import { DisplayValues } from '../../interfaces/display-values';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss']
 })
-export class DemoComponent implements OnChanges {
+export class DemoComponent {
 
   constructor() { }
-
-  ngOnChanges(): void {
-    console.log('ngOnChanges demo is: ', this.modalProperties);
-
-    this.modalProperties = {
-      modalAriaValue: this.ariaValue,
-      modalTitleText: this.titleText,
-      modalBodyContent: this.bodyContent,
-      modalPrimaryButtonLabel: this.primaryButtonLabel,
-      modalSecondaryButtonLabel: this.secondaryButtonLabel,
-      modalColorTheme: this.selectColorTheme,
-      modalTitleOption: this.selectTitleOption(),
-    }
-  }
 
   openModal(modalType: string) {
     this.displayModal = true;
 
     switch(modalType) {
       case 'dialogModal':
-        console.log('dialogModal was triggered');
+        // console.log('this.modalProperties: ', this.modalProperties);
         break;
       case 'lightTheme':
         console.log('lightTheme was triggered');
@@ -45,32 +32,33 @@ export class DemoComponent implements OnChanges {
     }
   }
 
+  updateModal(buttonType: string): void {
+    console.log('updateModal was hit');
+    console.log('buttonType: ', buttonType);
+    this.displayModal = false;
+  }
+
   displayModal: boolean = false;
 
   //Modal Radio Input Fields
-  selectColorTheme: string = 'Light Theme';
   colorThemes: string[] = ['Light Theme', 'Dark Theme'];
-  titleOptions: string[] = ['Show Title', 'Hide Title'];
+  colorTheme: string = 'Light Theme';
+  titleIconOptions: string[] = ['Show Icon', 'Hide Icon'];
+  titleIconOption: string = 'Show Icon';
 
-  //JSON Display:
-  ariaValue: string = 'Dialog Modal';
-  titleText: string = 'Modal Title';
-  bodyContent: string = 'Modal body content';
-  primaryButtonLabel: string = 'Accept';
-  secondaryButtonLabel: string = 'Cancel';
-  titleOption: string = 'Show Title';
-
-  selectTitleOption(): boolean {
-    return this.titleOption === 'Show Title' ? true : false;
+  displayValues: DisplayValues = {
+    titleText: 'Title Example',
+    bodyContent: 'Body content example',
+    primaryButtonLabel: 'Accept',
+    secondaryButtonLabel: 'Cancel',
+    ariaValue: 'Aria Value Example',
   }
 
-  modalProperties = {
-    modalAriaValue: this.ariaValue,
-    modalTitleText: this.titleText,
-    modalBodyContent: this.bodyContent,
-    modalPrimaryButtonLabel: this.primaryButtonLabel,
-    modalSecondaryButtonLabel: this.secondaryButtonLabel,
-    modalColorTheme: this.selectColorTheme,
-    modalTitleOption: this.selectTitleOption(),
+  hasTitleIcon(): boolean {
+    return this.titleIconOption === 'Show Icon' ? true : false;
+  }
+
+  hasLightTheme(): boolean {
+    return this.colorTheme === 'Light Theme' ? true : false;
   }
 }

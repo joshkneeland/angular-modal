@@ -1,1 +1,11 @@
-<p>MODAL WORKS BABY!</p>
+<div class="container-wrapper">
+    <div class="modal-wrapper">
+        <p>MODAL WORKS BABY!</p>
+        <mat-icon (click)="closeButton()">close</mat-icon>
+        <p>{{ modalInfo.titleText }}</p>
+        <p>{{ modalInfo.bodyContent }}</p>
+        <p>{{ modalInfo.ariaValue }}</p>
+        <button mat-flat-button color="basic" (click)="closeButton()">{{ modalInfo.secondaryButtonLabel }}</button>
+        <button mat-flat-button color="primary" (click)="saveButton()">{{ modalInfo.primaryButtonLabel }}</button>
+    </div>
+</div>

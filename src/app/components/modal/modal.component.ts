@@ -1,20 +1,24 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnChanges {
+export class ModalComponent {
 
   constructor() {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if('modalInfo' in changes) {
-      console.log('inner was hit');
-    }
-    console.log('changes: ', changes);
+  @Input() modalInfo: any; 
+  @Input() hasTitleIconPass: any; 
+  @Input() hasLightThemePass: any; 
+  @Output() changed: any = new EventEmitter<any>(); 
+
+  closeButton() {
+    this.changed.emit('closeButton');
   }
 
-  @Input() modalInfo: any; // decorate the property with @Input()
+  saveButton() {
+    this.changed.emit('saveButton');
+  }
 }
