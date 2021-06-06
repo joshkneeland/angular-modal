@@ -10,7 +10,146 @@
                     <mat-icon>code</mat-icon>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <p>This is the primary content of the panel.</p>
+            <p>SOURCE CODE</p>
         </mat-expansion-panel>
     </mat-accordion>
+    <div class="content-wrapper">
+        <div class="intro-wrapper">
+            Below, you will find an example of a DialogModalComponent. Modify the values below in order to see how the modal updates.
+        </div>
+
+        <div class="flex-container">
+            <div class="flex-item">
+                <div class="dialog-input-wrapper">
+                    <div class="dialog-option-wrapper">
+                        <label>Title Text</label>
+                        <input type="text" [(ngModel)]="titleText">
+                    </div>
+                    <div class="dialog-option-wrapper">
+                        <label>Body Content</label>
+                        <input type="text" [(ngModel)]="bodyContent">
+                    </div>
+                    <div class="dialog-option-wrapper">
+                        <label>Primary Button Label</label>
+                        <input type="text" [(ngModel)]="primaryButtonLabel">
+                    </div>
+                    <div class="dialog-option-wrapper">
+                        <label>Secondary Button Label</label>
+                        <input type="text" [(ngModel)]="secondaryButtonLabel">
+                    </div>
+                    <div class="dialog-option-wrapper">
+                        <label>Color Theme</label>
+                        <mat-radio-group 
+                            aria-labelledby="example-radio-group-label" 
+                            class="example-radio-group" 
+                            [(ngModel)]="selectColorTheme">
+                            <mat-radio-button 
+                                class="example-radio-button" 
+                                *ngFor="let theme of colorThemes" 
+                                [value]="theme">
+                                {{theme}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="dialog-option-wrapper">
+                        <label>Display Title</label>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [(ngModel)]="titleOption">
+                            <mat-radio-button class="example-radio-button" *ngFor="let titleOption of titleOptions" [value]="titleOption">
+                                {{titleOption}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="dialog-option-wrapper">
+                        <label>Aria Description</label>
+                        <input type="text" [(ngModel)]="ariaValue">
+                    </div>
+                    <div class="dialog-button-wrapper">
+                        <button mat-flat-button color="primary">Open Dialog Modal</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item"> 
+                <div class="json-output-wrapper">
+                    <p>&#123;</p>
+                    <p class="indent-by-one">"ariaDescription": "{{ ariaValue }}"</p>
+                    <p class="indent-by-one">"data": &#123;</p>
+                    <p class="indent-by-two">"title": "{{ titleText }}"</p>
+                    <p class="indent-by-two">"body": "{{ bodyContent }}"</p>
+                    <p class="indent-by-two">"primaryButton": "{{ primaryButtonLabel }}"</p>
+                    <p class="indent-by-two">"secondaryButton": "{{ secondaryButtonLabel }}"</p>
+                    <p class="indent-by-one">&#125;,</p>
+                    <p class="indent-by-one">"themeType": "{{ selectColorTheme }}"</p>
+                    <p class="indent-by-one">"titleIcon": {{ selectTitleOption() }}</p>
+                    <p>&#125;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Example Sandbox - Light Theme
+                </mat-panel-title>
+                <mat-panel-description>
+                    <span>View Source</span>
+                    <mat-icon>code</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>SOURCE CODE</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="content-wrapper">
+        <div>
+            In this example, we are seeing the default values inside of the Dialog Modal, which includes a light themed modal and title icon.
+        </div>
+        <div class="dialog-button-wrapper">
+            <button mat-flat-button color="primary">Open Light Themed Modal</button>
+        </div>
+    </div>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Example Sandbox - Dark Theme
+                </mat-panel-title>
+                <mat-panel-description>
+                    <span>View Source</span>
+                    <mat-icon>code</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>SOURCE CODE</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="content-wrapper">
+        <div>
+            In this example, we are seeing the dark themed color option being applied to the Dialog Modal.
+        </div>
+        <div class="dialog-button-wrapper">
+            <button mat-flat-button color="primary">Open Dark Themed Modal</button>
+        </div>
+    </div>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Example Sandbox - Hide Title Icon
+                </mat-panel-title>
+                <mat-panel-description>
+                    <span>View Source</span>
+                    <mat-icon>code</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>SOURCE CODE</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="content-wrapper">
+        <div>
+            In this example, we are seeing the Dialog Modal being displayed without the use of a title icon.
+        </div>
+        <div class="dialog-button-wrapper">
+            <button mat-flat-button color="primary">Open Hidden Title Icon Modal</button>
+        </div>
+    </div>
 </div>

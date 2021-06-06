@@ -1,10 +1,18 @@
+// DEMO COMPONENT STYLES
+
 .container-wrapper {
   padding: 16px 0;
 
+  //Accordion Styling
   span {
     padding-right: 0.25rem;
     color: #000;
     font-weight: lighter;
+  }
+
+  .mat-accordion .mat-expansion-panel:last-of-type {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   .mat-expansion-panel-header,
@@ -14,6 +22,7 @@
 
   .mat-expansion-panel-header:first-of-type {
     background: #d8dde6;
+    padding-top: 0.25rem;
   }
 
   .mat-icon {
@@ -33,5 +42,87 @@
 
   .mat-expansion-panel {
     box-shadow: none;
+  }
+
+  // Demo Section Styling
+  input {
+    display: block;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    height: 1.25rem;
+    width: 85%;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  .intro-wrapper {
+    flex: 100%;
+  }
+
+  .indent-by-one {
+    padding-left: 1rem;
+  }
+
+  .indent-by-two {
+    padding-left: 2rem;
+  }
+
+  .json-output-wrapper {
+    font-family: monospace;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .content-wrapper {
+    padding: 2rem 1.5rem;
+    border: 1px solid #d8dde6;
+    margin-bottom: 2rem;
+  }
+
+  .dialog-option-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .dialog-button-wrapper {
+    margin: 5rem 0 1rem;
+
+    button {
+      font-weight: normal;
+    }
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .flex-item {
+    margin-top: 2rem;
+    flex: 50%;
+
+    &:last-child {
+      overflow-x: scroll;
+    }
+  }
+
+  .mat-radio-button {
+    margin-top: 0.25rem;
+    padding-right: 1rem;
+  }
+
+  .mat-radio-group {
+    display: block;
+  }
+
+  // RESPONSIVE STYLING - MOBILE
+
+  @media (max-width: 600px) {
+    .flex-container {
+      flex-direction: column;
+    }
   }
 }
