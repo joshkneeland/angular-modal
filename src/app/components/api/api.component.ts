@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeriodicElement } from '../../interfaces/periodic-element';
+import { PeriodicElement } from '../../models/periodic-element';
 
 @Component({
   selector: 'app-api',

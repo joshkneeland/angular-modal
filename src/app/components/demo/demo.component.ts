@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DisplayValues } from '../../interfaces/display-values';
+import { DisplayValues } from '../../models/display-values';
 
 @Component({
   selector: 'app-demo',
