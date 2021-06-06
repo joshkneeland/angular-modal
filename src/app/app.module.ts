@@ -18,6 +18,7 @@ import { DemoComponent } from './components/demo/demo.component';
 import { ApiComponent } from './components/api/api.component';
 import { SpecComponent } from './components/spec/spec.component';
 import { AccessibilityComponent } from './components/accessibility/accessibility.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AccessibilityComponent } from './components/accessibility/accessibility
     DemoComponent,
     ApiComponent,
     SpecComponent,
-    AccessibilityComponent
+    AccessibilityComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

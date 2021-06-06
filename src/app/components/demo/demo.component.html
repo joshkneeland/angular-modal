@@ -17,7 +17,6 @@
         <div class="intro-wrapper">
             Below, you will find an example of a DialogModalComponent. Modify the values below in order to see how the modal updates.
         </div>
-
         <div class="flex-container">
             <div class="flex-item">
                 <div class="dialog-input-wrapper">
@@ -65,7 +64,7 @@
                         <input type="text" [(ngModel)]="ariaValue">
                     </div>
                     <div class="dialog-button-wrapper">
-                        <button mat-flat-button color="primary">Open Dialog Modal</button>
+                        <button mat-flat-button color="primary" (click)="openModal('dialogModal')">Open Dialog Modal</button>
                     </div>
                 </div>
             </div>
@@ -105,7 +104,7 @@
             In this example, we are seeing the default values inside of the Dialog Modal, which includes a light themed modal and title icon.
         </div>
         <div class="dialog-button-wrapper">
-            <button mat-flat-button color="primary">Open Light Themed Modal</button>
+            <button mat-flat-button color="primary" (click)="openModal('lightTheme')">Open Light Themed Modal</button>
         </div>
     </div>
     <mat-accordion>
@@ -127,7 +126,7 @@
             In this example, we are seeing the dark themed color option being applied to the Dialog Modal.
         </div>
         <div class="dialog-button-wrapper">
-            <button mat-flat-button color="primary">Open Dark Themed Modal</button>
+            <button mat-flat-button color="primary" (click)="openModal('darkTheme')">Open Dark Themed Modal</button>
         </div>
     </div>
     <mat-accordion>
@@ -149,7 +148,10 @@
             In this example, we are seeing the Dialog Modal being displayed without the use of a title icon.
         </div>
         <div class="dialog-button-wrapper">
-            <button mat-flat-button color="primary">Open Hidden Title Icon Modal</button>
+            <button mat-flat-button color="primary" (click)="openModal('hideTitle')">Open Hidden Title Icon Modal</button>
         </div>
+    </div>
+    <div class="modal-wrapper" *ngIf="displayModal">
+        <app-modal [modalInfo]="modalProperties"></app-modal>
     </div>
 </div>
