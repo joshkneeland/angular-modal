@@ -37,7 +37,7 @@ export class AppComponent {
     let snackBarState = '';
     modalStateParam === 'cancel' ? snackBarState = 'Oops!! Please try again.' : snackBarState = 'Success!! Your data was saved.'; 
     this._snackBar.open(snackBarState, 'Close', {
-      duration: 3000
+      duration: 2000
     });
   }
 }

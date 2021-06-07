@@ -21,9 +21,11 @@ import { SpecComponent } from './components/spec/spec.component';
 import { AccessibilityComponent } from './components/accessibility/accessibility.component';
 import { ModalComponent } from './components/modal/modal.component';
 
+// ANGULAR MATERIAL
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 // SERVICES
 import { UpdateModalService } from './services/update-modal.service';
-import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,6 @@ import { ToastComponent } from './components/toast/toast.component';
     SpecComponent,
     AccessibilityComponent,
     ModalComponent,
-    ToastComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,7 @@ import { ToastComponent } from './components/toast/toast.component';
     MatButtonModule,
     MatSnackBarModule
   ],
-  providers: [UpdateModalService],
+  providers: [UpdateModalService, MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

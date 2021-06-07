@@ -44,6 +44,13 @@
     box-shadow: none;
   }
 
+  .mat-expansion-panel-header[aria-disabled="true"]
+    .mat-expansion-panel-header-title,
+  .mat-expansion-panel-header[aria-disabled="true"]
+    .mat-expansion-panel-header-description {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
   // Demo Section Styling
   input {
     display: block;
@@ -116,6 +123,10 @@
 
   .mat-radio-group {
     display: block;
+  }
+
+  .mat-expansion-panel-content {
+    display: none !important;
   }
 
   // RESPONSIVE STYLING - MOBILE
