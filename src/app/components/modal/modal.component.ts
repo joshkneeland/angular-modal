@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { DisplayValues } from 'src/app/models/display-values';
 import { UpdateModalService } from 'src/app/services/update-modal.service';
 
@@ -9,10 +9,26 @@ import { UpdateModalService } from 'src/app/services/update-modal.service';
 })
 export class ModalComponent implements OnInit {
 
-  constructor(private _updateModalService: UpdateModalService) {}
+  @ViewChild('modalWrapper') modalWrapper: any;
+  @Input() displayModal: boolean = false;
+  clickOutsideClose: boolean = false;
+
+  constructor(private _updateModalService: UpdateModalService, private renderer: Renderer2) {
+    this.modalWrapper = null;
+  }
 
   ngOnInit() {
     this.displayValues = this._updateModalService.getDisplayValues();
+
+    setTimeout(() => {
+      this.clickOutsideClose = true;
+    }, 500);
+
+    this.renderer.listen('window', 'click', (e:Event)=> {
+      if(e.target !== this.modalWrapper.nativeElement && this.displayModal &&  this.clickOutsideClose){
+        this.closeModal('cancel');
+      }
+    });
   }
 
   displayValues: DisplayValues = {
