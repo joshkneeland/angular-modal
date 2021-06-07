@@ -6,15 +6,22 @@ import { DisplayValues } from '../models/display-values';
 })
 export class UpdateModalService {
 
-  constructor() { }
+  constructor() {}
+
+  modalValues = {
+    titleText: 'Title Example',
+    bodyContent: 'Body content example: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor qincididunt.',
+    primaryButtonLabel: 'Accept',
+    secondaryButtonLabel: 'Cancel',
+    ariaValue: 'Aria Value Example',
+    hasTitleIcon: 'Show Icon'
+  }
 
   getDisplayValues(): DisplayValues {
-    return {
-      titleText: 'Title Example',
-      bodyContent: 'Body content example: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      primaryButtonLabel: 'Accept',
-      secondaryButtonLabel: 'Cancel',
-      ariaValue: 'Aria Value Example',
-    }
+    return this.modalValues;
+  }
+
+  updateService(displayValues: any) {
+    this.modalValues = displayValues;
   }
 }

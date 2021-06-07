@@ -4,4 +4,5 @@ export interface DisplayValues {
     primaryButtonLabel: string;
     secondaryButtonLabel: string;
     ariaValue: string;
+    hasTitleIcon: string;
 }

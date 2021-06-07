@@ -20,12 +20,11 @@ export class DemoComponent implements OnInit {
   @Output() displayModal: any = new EventEmitter<any>();
 
   callParentEvent(status: string) {
+    this._updateModalService.updateService(this.displayValues);
     this.displayModal.emit(status);
   }
 
   //Modal Radio Input Fields
-  colorThemes: string[] = ['Light Theme', 'Dark Theme'];
-  colorTheme: string = 'Light Theme';
   titleIconOptions: string[] = ['Show Icon', 'Hide Icon'];
   titleIconOption: string = 'Show Icon';
 
@@ -35,13 +34,14 @@ export class DemoComponent implements OnInit {
     primaryButtonLabel: '',
     secondaryButtonLabel: '',
     ariaValue: '',
+    hasTitleIcon: ''
   };
 
-  hasTitleIcon(): boolean {
-    return this.titleIconOption === 'Show Icon' ? true : false;
+  hasTitleIcon(): string {
+    return this.displayValues.hasTitleIcon ? 'Show Icon' : 'Hide Icon';
   }
 
-  hasLightTheme(): boolean {
-    return this.colorTheme === 'Light Theme' ? true : false;
-  }
+  // hasLightTheme(): boolean {
+  //   return this.colorTheme === 'Light Theme' ? true : false;
+  // }
 }

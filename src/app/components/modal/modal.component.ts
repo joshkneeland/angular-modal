@@ -21,6 +21,7 @@ export class ModalComponent implements OnInit {
     primaryButtonLabel: '',
     secondaryButtonLabel: '',
     ariaValue: '',
+    hasTitleIcon: ''
   };
 
   @Output() changedModal: any = new EventEmitter<any>(); 

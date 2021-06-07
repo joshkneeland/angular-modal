@@ -36,7 +36,7 @@
                         <label>Secondary Button Label</label>
                         <input type="text" [(ngModel)]="displayValues.secondaryButtonLabel">
                     </div>
-                    <div class="dialog-option-wrapper">
+                    <!-- <div class="dialog-option-wrapper">
                         <label>Color Theme</label>
                         <mat-radio-group 
                             aria-labelledby="example-radio-group-label" 
@@ -49,11 +49,11 @@
                                 {{colorTheme}}
                             </mat-radio-button>
                         </mat-radio-group>
-                    </div>
+                    </div> -->
                     <div class="dialog-option-wrapper">
                         <label>Display Title Icon</label>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-                            [(ngModel)]="titleIconOption">
+                            [(ngModel)]="displayValues.hasTitleIcon">
                             <mat-radio-button 
                                 class="example-radio-button" 
                                 *ngFor="let iconOption of titleIconOptions" 
@@ -81,8 +81,8 @@
                     <p class="indent-by-two">"primaryButton": "{{ displayValues.primaryButtonLabel }}"</p>
                     <p class="indent-by-two">"secondaryButton": "{{ displayValues.secondaryButtonLabel }}"</p>
                     <p class="indent-by-one">&#125;,</p>
-                    <p class="indent-by-one">"hasLightTheme": {{ hasLightTheme() }}</p>
-                    <p class="indent-by-one">"hasTitleIcon": {{ hasTitleIcon() }}</p>
+                    <!-- <p class="indent-by-one">"hasLightTheme": {{ hasLightTheme() }}</p> -->
+                    <p class="indent-by-one">"hasTitleIcon": "{{ displayValues.hasTitleIcon }}"</p>
                     <p>&#125;</p>
                 </div>
             </div>

@@ -1,11 +1,16 @@
-<div class="container-wrapper">
+<div class="container-wrapper" [attr.aria-label]="this.displayValues.ariaValue">
     <div class="modal-wrapper">
         <!-- <p>MODAL WORKS BABY!</p> -->
-        <mat-icon (click)="closeModal('cancel')">close</mat-icon>
+        <mat-icon (click)="closeModal('cancel')" class="close-icon">close</mat-icon>
         <div class="modal-flex-help">
             <div class="modal-content">
-                <h2>{{ this.displayValues.titleText }}</h2>
-                <h3 class="body-content">{{ this.displayValues.bodyContent }}</h3>
+                <h2>
+                    <mat-icon class="error-icon" *ngIf="this.displayValues.hasTitleIcon === 'Show Icon'">error</mat-icon>
+                    {{ this.displayValues.titleText }}
+                </h2>
+                <h3 class="body-content">
+                    {{ this.displayValues.bodyContent }}
+                </h3>
             </div>
             <div class="modal-buttons">
                 <button mat-stroked-button color="basic" (click)="closeModal('cancel')">{{ this.displayValues.secondaryButtonLabel }}</button>
