@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { ModalComponent } from './components/modal/modal.component';
 
 // SERVICES
 import { UpdateModalService } from './services/update-modal.service';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { UpdateModalService } from './services/update-modal.service';
     ApiComponent,
     SpecComponent,
     AccessibilityComponent,
-    ModalComponent
+    ModalComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { UpdateModalService } from './services/update-modal.service';
     MatIconModule,
     MatRadioModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [UpdateModalService],
   bootstrap: [AppComponent]
