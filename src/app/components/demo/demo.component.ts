@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { DisplayValues } from '../../models/display-values';
 import { UpdateModalService } from 'src/app/services/update-modal.service';
 
@@ -15,35 +16,49 @@ export class DemoComponent implements OnInit {
     this.displayValues = this._updateModalService.getDisplayValues();
   }
 
-  openModal(modalType: string) {
-    this.displayModal = true;
+  @Output() changed: any = new EventEmitter<any>(); 
+  @Output() displayModal: any = new EventEmitter<any>();
 
-    switch(modalType) {
-      case 'dialogModal':
-        // console.log('this.modalProperties: ', this.modalProperties);
-        break;
-      case 'lightTheme':
-        console.log('lightTheme was triggered');
-        break;
-      case 'darkTheme':
-        console.log('darkTheme was triggered');
-        break;
-      case 'hideTitle':
-        console.log('hideTitle was triggered');
-        break;
-      default:
-        console.log('default was triggered');
-        break;
-    }
+  callParentEvent(paramOne: any, paramTwo: any, paramThree: any) {
+    this.displayModal.emit();
   }
 
-  updateModal(buttonType: string): void {
-    console.log('updateModal was hit');
-    console.log('buttonType: ', buttonType);
-    this.displayModal = false;
-  }
+  // openModal() {
+  //   // console.log('new openModal hit');
+  //   this.changed.emit('closeButton');
+  // }
 
-  displayModal: boolean = false;
+  // openModal(modalType: string) {
+  //   // this.displayModal = true;
+
+  //   this.changed.emit();
+
+  //   // switch(modalType) {
+  //   //   case 'dialogModal':
+  //   //     // console.log('this.modalProperties: ', this.modalProperties);
+  //   //     break;
+  //   //   case 'lightTheme':
+  //   //     console.log('lightTheme was triggered');
+  //   //     break;
+  //   //   case 'darkTheme':
+  //   //     console.log('darkTheme was triggered');
+  //   //     break;
+  //   //   case 'hideTitle':
+  //   //     console.log('hideTitle was triggered');
+  //   //     break;
+  //   //   default:
+  //   //     console.log('default was triggered');
+  //   //     break;
+  //   // }
+  // }
+
+  // updateModal(buttonType: string): void {
+  //   console.log('updateModal was hit');
+  //   console.log('buttonType: ', buttonType);
+  //   this.displayModal = false;
+  // }
+
+  // displayModal: boolean = false;
 
   //Modal Radio Input Fields
   colorThemes: string[] = ['Light Theme', 'Dark Theme'];

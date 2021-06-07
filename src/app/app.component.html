@@ -1,8 +1,13 @@
 <div class="container-wrapper">
+  <!-- TAB COMPONENT -->
   <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="Demo"><app-demo></app-demo></mat-tab>
+    <mat-tab label="Demo"><app-demo (displayModal)="updateModal('open')"></app-demo></mat-tab>
     <mat-tab label="API"><app-api></app-api></mat-tab>
     <mat-tab label="Spec"><app-spec></app-spec></mat-tab>
     <mat-tab label="Accessibility"><app-accessibility></app-accessibility></mat-tab>
   </mat-tab-group>
+  <!-- MODAL COMPONENT (Only rendered to the DOM when necessary) -->
+  <div class="modal-wrapper" *ngIf="displayModal">
+    <app-modal (changedModal)="updateModal('close')"></app-modal>
+  </div>
 </div>

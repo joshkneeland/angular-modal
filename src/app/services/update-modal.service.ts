@@ -11,7 +11,7 @@ export class UpdateModalService {
   getDisplayValues(): DisplayValues {
     return {
       titleText: 'Title Example',
-      bodyContent: 'Body content example',
+      bodyContent: 'Body content example: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       primaryButtonLabel: 'Accept',
       secondaryButtonLabel: 'Cancel',
       ariaValue: 'Aria Value Example',

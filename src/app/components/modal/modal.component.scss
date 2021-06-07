@@ -1,3 +1,61 @@
-.mat-icon {
-  cursor: pointer;
+.container-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(50, 69, 85, 0.8);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-wrapper {
+    background-color: #ffffff;
+    padding: 3rem;
+    position: relative;
+    height: 52%;
+    width: 72%;
+  }
+
+  .mat-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+  }
+
+  .modal-flex-help {
+    display: flex;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+
+    .body-content {
+      overflow-y: scroll;
+      max-height: 270px;
+    }
+  }
+
+  .modal-buttons {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      width: 48%;
+      height: 50px;
+    }
+  }
+}
+
+// RESPONSIVE STYLING
+
+@media (max-width: 600px) {
 }

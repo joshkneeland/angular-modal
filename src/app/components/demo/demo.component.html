@@ -67,7 +67,7 @@
                         <input type="text" [(ngModel)]="displayValues.ariaValue">
                     </div>
                     <div class="dialog-button-wrapper">
-                        <button mat-flat-button color="primary" (click)="openModal('dialogModal')">Open Dialog Modal</button>
+                        <button mat-flat-button color="primary" (click)="callParentEvent(this.displayValues, this.hasTitleIcon(), this.hasLightTheme())">Open Dialog Modal</button>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,9 @@
             </div>
         </div>
     </div>
-    <mat-accordion>
+
+    
+    <!-- <mat-accordion>
         <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -153,13 +155,15 @@
         <div class="dialog-button-wrapper">
             <button mat-flat-button color="primary" (click)="openModal('hideTitle')">Open Hidden Title Icon Modal</button>
         </div>
-    </div>
-    <div class="modal-wrapper" *ngIf="displayModal">
+    </div> -->
+
+
+    <!-- <div class="modal-wrapper" *ngIf="displayModal">
         <app-modal 
             [modalInfo]="displayValues"
             [hasTitleIconPass]="hasTitleIcon()"
             [hasLightThemePass]="hasLightTheme()"
             (changed)="updateModal($event)">
         </app-modal>
-    </div>
+    </div> -->
 </div>

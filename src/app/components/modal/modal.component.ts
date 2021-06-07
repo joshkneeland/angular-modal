@@ -1,24 +1,31 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { DisplayValues } from 'src/app/models/display-values';
+import { UpdateModalService } from 'src/app/services/update-modal.service';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent {
+export class ModalComponent implements OnInit {
 
-  constructor() {}
+  constructor(private _updateModalService: UpdateModalService) {}
 
-  @Input() modalInfo: any; 
-  @Input() hasTitleIconPass: any; 
-  @Input() hasLightThemePass: any; 
-  @Output() changed: any = new EventEmitter<any>(); 
-
-  closeButton() {
-    this.changed.emit('closeButton');
+  ngOnInit() {
+    this.displayValues = this._updateModalService.getDisplayValues();
   }
 
-  saveButton() {
-    this.changed.emit('saveButton');
+  displayValues: DisplayValues = {
+    titleText: '',
+    bodyContent: '',
+    primaryButtonLabel: '',
+    secondaryButtonLabel: '',
+    ariaValue: '',
+  };
+
+  @Output() changedModal: any = new EventEmitter<any>(); 
+
+  closeModal(type: string) {
+    this.changedModal.emit(type);
   }
 }
