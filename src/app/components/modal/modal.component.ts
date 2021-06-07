@@ -25,7 +25,7 @@ export class ModalComponent implements OnInit {
 
   @Output() changedModal: any = new EventEmitter<any>(); 
 
-  closeModal(type: string) {
-    this.changedModal.emit(type);
+  closeModal(buttonType: string) {
+    this.changedModal.emit(buttonType);
   }
 }

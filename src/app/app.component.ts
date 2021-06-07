@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'angular-modal-project';
 
   // MODAL LOGIC
-  updateModal(modalState: string): void {
+  updateModal(modalState?: string): void {
     console.log('modalState: ', modalState);
     modalState === 'open' ? this.displayModal = true : this.displayModal = false;
   }

@@ -19,46 +19,9 @@ export class DemoComponent implements OnInit {
   @Output() changed: any = new EventEmitter<any>(); 
   @Output() displayModal: any = new EventEmitter<any>();
 
-  callParentEvent(paramOne: any, paramTwo: any, paramThree: any) {
-    this.displayModal.emit();
+  callParentEvent(status: string) {
+    this.displayModal.emit(status);
   }
-
-  // openModal() {
-  //   // console.log('new openModal hit');
-  //   this.changed.emit('closeButton');
-  // }
-
-  // openModal(modalType: string) {
-  //   // this.displayModal = true;
-
-  //   this.changed.emit();
-
-  //   // switch(modalType) {
-  //   //   case 'dialogModal':
-  //   //     // console.log('this.modalProperties: ', this.modalProperties);
-  //   //     break;
-  //   //   case 'lightTheme':
-  //   //     console.log('lightTheme was triggered');
-  //   //     break;
-  //   //   case 'darkTheme':
-  //   //     console.log('darkTheme was triggered');
-  //   //     break;
-  //   //   case 'hideTitle':
-  //   //     console.log('hideTitle was triggered');
-  //   //     break;
-  //   //   default:
-  //   //     console.log('default was triggered');
-  //   //     break;
-  //   // }
-  // }
-
-  // updateModal(buttonType: string): void {
-  //   console.log('updateModal was hit');
-  //   console.log('buttonType: ', buttonType);
-  //   this.displayModal = false;
-  // }
-
-  // displayModal: boolean = false;
 
   //Modal Radio Input Fields
   colorThemes: string[] = ['Light Theme', 'Dark Theme'];
